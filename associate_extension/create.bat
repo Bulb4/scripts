@@ -1,6 +1,6 @@
 @echo off
 
-call "%~dp0\..\as_admin.bat" "%~0" 
+call "as_admin.bat" "%~0"
 
 set "weird=%weird:^=^^^%"
 for %%a in ("&" "|" ">" "<") do ^
