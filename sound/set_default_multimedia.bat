@@ -1,5 +1,7 @@
 @echo off
 
+cd /d "%~dp0"
+
 set "get_default_device=svcl.exe /scomma "" /Columns "Name,DefaultMultimedia,DefaultCommunications""
 set "set_default_device=svcl.exe /SetDefault"
 set enabled="Render"

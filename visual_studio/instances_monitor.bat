@@ -1,3 +1,6 @@
+@echo off
+
+cd /d "%~dp0" 
 
 set "last_count=%vs_instances%"
 set "get_count=tasklist /fo csv /fi "imagename eq devenv.exe""
@@ -6,10 +9,10 @@ set "get_count=tasklist /fo csv /fi "imagename eq devenv.exe""
 timeout /t 10
 
 set count=0
-for /f %%a in ('%get_count%') do set /a count=count2 + 1
+for /f %%a in ('%get_count%') do set /a count=count + 1
 
-set "count=[%count%]"
-if "%count%"=="[1]" set "count="
+set "count=[%count%] "
+if "%count%"=="[1] " set "count="
 
 if "%last_count%"=="%count%" goto :loop
 
