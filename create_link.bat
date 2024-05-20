@@ -1,6 +1,5 @@
 @echo off
 
-cd /d "%~dp0" && net session 1>nul 2>nul || ( echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/c cd ""%~sdp0"" && %~s0 %~1 %~2", "", "runas", 1 > "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
 
 
 set browse_root=17

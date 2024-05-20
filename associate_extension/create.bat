@@ -1,4 +1,6 @@
-echo off
+@echo off
+
+call "%~dp0\..\as_admin.bat" "%~0" 
 
 set "weird=%weird:^=^^^%"
 for %%a in ("&" "|" ">" "<") do ^
@@ -25,12 +27,8 @@ echo Enter menu name^(example: Open with Notepad^):
 set /p menu_name=
 if "%menu_name%"=="" echo Menu name should not be empty & goto err
 
-
-::for %%a in ("&" "|" ">" "<") do ^
 for %%a in ("/" "\" ":" "<") do ^
 echo %%~a
-::call set "menu_key=%%menu_key:%%~a=_%%"
-
 
 set "menu_key=%menu_name%"
 set "menu_key=%menu_key:/=_%"
@@ -60,14 +58,14 @@ set "key=%key%\%menu_key%"
 %exec% reg add "%key:"=\"%" /ve /d "%menu_name:"=\"%" /f
 
 echo Enter path to icon
-echo ^(example: "C:\Windows\System32\notepad.exe", 0^)
+echo ^(example: "C:\Windows\System32\notepad.exe"^)
 echo ^(example: "C:\MyProgram\icon.ico"^)
 echo Leave empty if you don't need it:
 set /p icon_path=
 if exist %icon_path% ^
 %exec% reg add "%key%" /v Icon /d "%icon_path:"=\"%" /f
 
-echo Enter command, put path into quotes^(example: "C:\Windows\System32\notepad.exe" %%1^):
+echo Enter command, put path and arg into quotes^(example: "C:\Windows\System32\notepad.exe" "%%%%1"^):
 set /p command=
 
 set "key=%key%\command"
