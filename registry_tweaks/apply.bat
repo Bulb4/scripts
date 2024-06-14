@@ -7,7 +7,7 @@ call :reg_backup %key%
 call :reg_add %key% /f /v "MinWidth" /d 250
 ::settings with pixels * -15
 call :reg_add %key% /f /v "BorderWidth" /d 0
-call :reg_add %key% /f /v "CaptionHeight" /d -255
+call :reg_add %key% /f /v "CaptionHeight" /d -270
 call :reg_add %key% /f /v "MenuHeight" /d -225
 call :reg_add %key% /f /v "ScrollHeight" /d -195
 call :reg_add %key% /f /v "ScrollWidth" /d -195

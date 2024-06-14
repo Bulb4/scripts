@@ -14,7 +14,7 @@ set "key=HKCR\SystemFileAssociations"
 
 echo Enter file extension^(example: .txt^):
 set /p extension=
-if not "%extension:~0,1%"=="." echo Extension should start with . character & goto err
+::if not "%extension:~0,1%"=="." echo Extension should start with . character & goto err
 
 set "key=%key%\%extension%"
 %exec% reg add %key% /f
